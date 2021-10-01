@@ -1,6 +1,8 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +10,8 @@ import { HttpClient } from '@angular/common/http';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  getAllUsers = () => this.http.get(environment.apiUrl);
+  getAllUsers = () => this.http.get<Observable<User[]>>(environment.apiUrl);
 
   // add put to update a user - url is environment.apiUrl/users/{userId}
-  updateUser = (user: any) => this.http.put(environment.apiUrl, user);
+  updateUser = (user: User) => this.http.put(environment.apiUrl, user);
 }
