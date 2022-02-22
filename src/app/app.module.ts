@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UsersListComponent } from './pages/users-list/users-list.component';
 import { EditUserComponent } from './pages/edit-user/edit-user.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, UsersListComponent, EditUserComponent],
@@ -15,6 +16,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     HttpClientModule,
     ModalModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

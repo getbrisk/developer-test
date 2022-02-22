@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  getAllUsers = () => this.http.get<Observable<User[]>>(environment.apiUrl);
+  getAllUsers = () => this.http.get<User[]>(environment.apiUrl);
 
   // add put to update a user - url is environment.apiUrl/users/{userId}
-  updateUser = (user: User) => this.http.put(environment.apiUrl, user);
+  updateUser = (user: User) => this.http.put<User>(environment.apiUrl + '/' + user.id, user);
 }

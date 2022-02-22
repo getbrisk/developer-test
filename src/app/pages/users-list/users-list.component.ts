@@ -3,6 +3,7 @@ import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-users-list',
@@ -10,7 +11,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
   styleUrls: ['./users-list.component.scss'],
 })
 export class UsersListComponent implements OnInit {
-  public users: Observable<any> = new Observable<any>();
+  public users: Observable<User[]> = new Observable<User[]>();
   private modalRef?: BsModalRef | null;
   constructor(
     private usersService: UsersService,
@@ -21,7 +22,7 @@ export class UsersListComponent implements OnInit {
     this.getUsers();
   }
 
-  editUser(user: any) {
+  editUser(user: User) {
     const initialState = {
       user,
     };
